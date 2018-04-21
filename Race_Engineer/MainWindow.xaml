@@ -27,6 +27,9 @@
             <Label x:Name="lblDarkToggle" Content="Toggle Darkmode" HorizontalAlignment="Right" Margin="305,0,0,0" Width="150" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
             <ToggleButton x:Name="tgTheme" HorizontalAlignment="Right" Click="ToggleButton_Click" Width="50"/>
         </DockPanel>
-        <Frame x:Name="fMain" Margin="0,60,0,0" NavigationUIVisibility="Hidden"/>
+        <materialDesign:Transitioner x:Name="tsMain" VerticalAlignment="Stretch" Height="Auto" SelectedIndex="0" Margin="0,60,0,0">
+            <local:MainUC/>
+            <local:QuestionUC/>
+        </materialDesign:Transitioner>
     </Grid>
 </Window>

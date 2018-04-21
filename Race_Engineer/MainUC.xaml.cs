@@ -1,4 +1,4 @@
-﻿using MaterialDesignThemes.Wpf;
+﻿using MaterialDesignThemes.Wpf.Transitions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -17,22 +16,27 @@ using System.Windows.Shapes;
 
 namespace Race_Engineer {
     /// <summary>
-    /// Interaction logic for PageMain.xaml
+    /// Interaction logic for MainUC.xaml
     /// </summary>
-    public partial class PageMain : Page {
-        public PageMain() {
+    public partial class MainUC : UserControl {
+        public MainUC() {
             InitializeComponent();
             MainWindow main = (MainWindow)App.Current.MainWindow;
             bool isDark = main.tgTheme.IsChecked ?? false;
             SetDarkImages(isDark);
         }
-
         private void ClickButton(object sender, MouseButtonEventArgs e) {
-            NavigationService nav = NavigationService.GetNavigationService(this);
-            FrameworkElement border = (FrameworkElement)sender;
-            nav.Content = new PageQuestion(border.Tag.ToString(), 0);
-        }
+            //NavigationService nav = NavigationService.GetNavigationService(this);
+            //FrameworkElement border = (FrameworkElement)sender;
+            //nav.Content = new PageQuestion(border.Tag.ToString(), 0);
 
+            FrameworkElement obj = sender as FrameworkElement;
+            MainWindow main = App.Current.MainWindow as MainWindow;
+            Transitioner trans = main.tsMain;
+            QuestionUC questionUC = trans.Items.GetItemAt(1) as QuestionUC;
+            questionUC.GeneratePage(obj.Tag.ToString(), 0);
+            trans.SelectedIndex = 1;
+        }
         public void SetDarkImages(bool isDark) {
             if (isDark) {
                 imgBraking.Source = new BitmapImage(new Uri("pack://application:,,,/Race_Engineer;component/Resources/RE_Brake_D.png"));

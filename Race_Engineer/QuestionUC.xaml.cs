@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf.Transitions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,9 +17,9 @@ using System.Xml;
 
 namespace Race_Engineer {
     /// <summary>
-    /// Interaction logic for PageQuestion.xaml
+    /// Interaction logic for QuestionUC.xaml
     /// </summary>
-    public partial class PageQuestion : Page {
+    public partial class QuestionUC : UserControl {
         struct ButtonDataStruct {
             public int questionID;
             public string catName;
@@ -27,30 +28,34 @@ namespace Race_Engineer {
                 catName = category;
             }
         }
-        public PageQuestion(string category, int question) {
+        public QuestionUC() {
             InitializeComponent();
-            GeneratePage(category, question);
+            GeneratePage("None", 0);
         }
+
         private void BackClick(object sender, RoutedEventArgs e) {
-            NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Content = new PageMain();
+            FrameworkElement obj = sender as FrameworkElement;
+            MainWindow main = App.Current.MainWindow as MainWindow;
+            main.tsMain.SelectedIndex = 0;
         }
         private void AnswerClick(object sender, RoutedEventArgs e) {
-            Button but = (Button)sender;
-            NavigationService nav = NavigationService.GetNavigationService(this);
-            ButtonDataStruct btnData = (ButtonDataStruct)but.Tag;
+            FrameworkElement obj = sender as FrameworkElement;
+            MainWindow main = App.Current.MainWindow as MainWindow;
+            Transitioner trans = main.tsMain;
+            
+            ButtonDataStruct btnData = (ButtonDataStruct)obj.Tag;
             if (btnData.questionID == 0 && btnData.catName == "") {
-                nav.Content = new PageMain();
+                trans.SelectedIndex = 0;
             }
-            else if(btnData.catName != "") {
-                nav.Content = new PageQuestion(btnData.catName, btnData.questionID);
+            else if (btnData.catName != "") {
+                GeneratePage(btnData.catName, btnData.questionID);
             }
             else {
-                nav.Content = new PageQuestion(lblCategory.Content.ToString(), btnData.questionID);
+                GeneratePage(lblCategory.Content.ToString(), btnData.questionID);
             }
         }
 
-        private void GeneratePage(string category, int question) {
+        public void GeneratePage(string category, int question) {
             XmlDocument doc = new XmlDocument();
             try {
                 doc.Load("RaceEngineer_data.xml");
@@ -75,23 +80,24 @@ namespace Race_Engineer {
 
             tbDescription.Text = quest.FirstChild.InnerText;
             XmlNodeList answerNodes = quest.SelectNodes("tel:Answer", nsmgr);
+            spAnswers.Children.Clear();
             foreach (XmlNode n in answerNodes) {
                 Button btnN = new Button();
-                if(!int.TryParse(n.Attributes["QuestionRef"].Value, out int questID)) { continue; }
+                if (!int.TryParse(n.Attributes["QuestionRef"].Value, out int questID)) { continue; }
                 XmlNode catRef = n.SelectSingleNode("tel:CategoryRef", nsmgr);
                 string catRefname = "";
-                if(catRef != null) {
+                if (catRef != null) {
                     catRefname = catRef.InnerText;
                 }
                 btnN.Name = "btn" + questID;
-                btnN.Tag = new ButtonDataStruct(questID,catRefname);
+                btnN.Tag = new ButtonDataStruct(questID, catRefname);
                 btnN.Content = n.FirstChild.InnerText;
                 btnN.FontSize = 18;
                 btnN.Margin = new Thickness(0, 0, 0, 10);
                 btnN.Click += new RoutedEventHandler(AnswerClick);
                 spAnswers.Children.Add(btnN);
             }
-            if(spAnswers.Children.Count == 0) {
+            if (spAnswers.Children.Count == 0) {
                 Label lab = new Label();
                 lab.Name = "lblNoAnswers";
                 lab.Content = "No answers found for this question.";

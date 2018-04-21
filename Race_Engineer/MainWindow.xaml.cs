@@ -25,16 +25,19 @@ namespace Race_Engineer {
             bool enabled = Properties.Settings.Default.UseDarkTheme;
             tgTheme.IsChecked = enabled;
             new PaletteHelper().SetLightDark(enabled);
-            fMain.Content = new PageMain();
+            MainUC mainUC = tsMain.Items.GetItemAt(0) as MainUC;
+            if (mainUC != null) {
+                mainUC.SetDarkImages(enabled);
+            }
         }
 
         private void ToggleButton_Click(object sender, RoutedEventArgs e) {
             ToggleButton btn = (ToggleButton)sender;
             bool enabled = btn.IsChecked ?? false;
             new PaletteHelper().SetLightDark(enabled);
-            PageMain pageMain = fMain.Content as PageMain;
-            if(pageMain != null) {
-                pageMain.SetDarkImages(enabled);
+            MainUC mainUC = tsMain.Items.GetItemAt(0) as MainUC;
+            if(mainUC != null) {
+                mainUC.SetDarkImages(enabled);
             }
             Properties.Settings.Default.UseDarkTheme = enabled;
             Properties.Settings.Default.Save();
