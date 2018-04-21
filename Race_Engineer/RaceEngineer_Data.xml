@@ -1,0 +1,242 @@
+﻿<Root xmlns="http://tempuri.org/RaceEngineer_Schema.xsd">
+  <Category Name="Braking">
+    <Question QuestionID="0">
+      <Description>What is the issue with the braking on the car?</Description>
+      <Answer QuestionRef="1">
+        <Description>Not stopping in time.</Description>
+      </Answer>
+      <Answer QuestionRef="2">
+        <Description>Stopping to quickly.</Description>
+      </Answer>
+      <Answer QuestionRef="3">
+        <Description>Keep sliding when braking.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="1">
+      <Description>If you're not already doing so, I'd recommend braking a little earlier for the turns. Aside from that, changes to Brake Pressure or Brake Bias may also help. We can either look at increasing the Brake Pressure to improve braking power, or we can shift the Brake Bias. We can look at increasing Brake Pressure, which will make them more powerful.</Description>
+      <Answer QuestionRef="0">
+        <Description>Increase Brake Pressure. (+1%)</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Move Brake Bias rearwards. (+1/-1)</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Move Brake Bias forwards. (-1/+1)</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="2">
+      <Description>Generally speaking, stopping too quickly can be an advantage, as it means you can brake later to gain more time. We can, however, lower the Braking Pressure, this means that the brakes will have less stopping power, but it will also reduce the chance of locking-up the tyres.</Description>
+      <Answer QuestionRef="0">
+        <Description>Decrease Brake Pressure. (-1%)</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="3">
+      <Description>Ok, this sounds as if you're locking the tyres under braking, which is then causing the car to slide. Can you tell me whether it's the front or rear wheels that are locking-up? If it's the front locking-up, you'll find your car wants to keep going straight while you're braking, and you can't turn into the corner. If it's the rear, then the back of the car will get unstable and try to spin around.</Description>
+      <Answer QuestionRef="4">
+        <Description>Front.</Description>
+      </Answer>    
+      <Answer QuestionRef="5">
+        <Description>Rear.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="4">
+      <Description>Are the front tyres locking easily? For instance, do they lock up almost straight away when you get on the brakes? If so, we can decrease the Brake Pressure, this will make the brakes a little less powerful, but will give you finer control under braking, and will also reduce the chance of the tyres locking-up. Or alternatively, we can move the Brake Bias towards the rear a little so the front brakes work a little less. This should ease the likelihood of the front brakes from locking.</Description>
+      <Answer QuestionRef="0">
+        <Description>Move Brake Bias rearwards. (+1/-1)</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Decrease Brake Pressure. (-1%)</Description>
+      </Answer>
+    </Question>  
+    <Question QuestionID="5">
+      <Description>So the back of the car keeps tring to spin around? Moving the Brake Bias forward should help.</Description>
+      <Answer QuestionRef="0">
+        <Description>Move Brake Bias forwards. (-1/+1)</Description>
+      </Answer>
+    </Question>
+  </Category>
+  <Category Name="Downforce">
+    <Question QuestionID="0">
+      <Description>What's the issue with the Downforce on the car?</Description>
+      <Answer QuestionRef="1">
+        <Description>Slow on straights.</Description>
+      </Answer>
+      <Answer QuestionRef="2">
+        <Description>Keep spinning in fast corners.</Description>
+      </Answer>
+      <Answer QuestionRef="3">
+        <Description>Doesn't turn into corners.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="1">
+      <Description>Ok, if you feel you're too slow on the straights, it could mean that the wing angles, or parts creating downforce, are too high and are creating too much drag. We can lower the rear wing angle, the front downforce angles, or both, if they are present, to create less drag and increase top-end speed. This could have an effect on car balance though, potentially increasing oversteer if only lowering the rears downforce, or understeer if only adjusting the front. Alternatively, you can take a look at the car's Gearing to see if you can get a little more straight line speed that way. If you want to improve this area I'd advise taking a look at Gearing as that might help you get a little more straight line speed.</Description>
+      <Answer QuestionRef="0">
+        <Description>Reduce rear Downforce. (-1)</Description>
+      </Answer>    
+      <Answer QuestionRef="0">
+        <Description>Reduce front Downforce. (-0.5)</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Go to Gearing menu.</Description>
+        <CategoryRef>Gearing</CategoryRef>
+      </Answer>
+    </Question>
+    <Question QuestionID="2">
+      <Description>Ok, if it feels as if  you're losing grip at the rear through fast turns, that could mean that the rear wing angle is too low and not generating enough rear DOwnforce, which is causing oversteer. We can increase rear Downforce for you. You can also look at the Suspension, as that could provide alternative solutions to this problem.</Description>
+      <Answer QuestionRef="0">
+        <Description>Raise rear Downforce. (+1)</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Go to Suspension menu.</Description>
+        <CategoryRef>Suspension</CategoryRef>
+      </Answer>
+    </Question>
+    <Question QuestionID="3">
+      <Description>Ok, if you feel as if the car isn't turning into corners, in all likelihood you're suffering from understeer. We can increase the front wing, or splitter angle, which will give you more front Downforce and "bite". That could mean that the rear Downdorce is too high and is causing too much drag, Would you like us to lower it for you? This will cost you downforce on the rear of the car in the corners.</Description>
+      <Answer QuestionRef="0">
+        <Description>Reduce rear Downforce. (-1)</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Raise front Downforce. (+0.5)</Description>
+      </Answer>
+    </Question>
+  </Category>
+  <Category Name="Suspension">
+    <Question QuestionID="0">
+      <Description>What's the issue with the handling of the car?</Description>
+      <Answer QuestionRef="1">
+        <Description>Doesn't turn into corners.</Description>
+      </Answer>
+      <Answer QuestionRef="5">
+        <Description>Turning too much in corners.</Description>
+      </Answer>
+      <Answer QuestionRef="9">
+        <Description>Tyres are gone after a few laps.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="1">
+	    <Description>Ok, that sounds like understeer. Where in the corner is it not turning as much as you'd like? At the point of turning in? Or going through the corner? Or coming through the exit?</Description>
+	    <Answer QuestionRef="2">
+		    <Description>When turning in.</Description>
+	    </Answer>
+	    <Answer QuestionRef="3">
+		    <Description>Throughout the corner.</Description>
+	    </Answer>
+	    <Answer QuestionRef="4">
+		    <Description>On corner exit.</Description>
+	    </Answer>
+    </Question>
+    <Question QuestionID="2">
+	    <Description>Ok, it sounds as if you're getting understeer when turning in. There are a couple of things we can do here. First, we can stiffen the front springs to make the car more responsive when turning in. The other thing we can do depends on whether or not you're bottoming-out. If you're not, we can lower the front ride height to generate a bit more front downforce for those faster corners. We can stiffen the front Spring Rates to provide a bit sharper steering.</Description>
+	    <Answer QuestionRef="0">
+		    <Description>Stiffen the front Spring Rates. (+5 N/mm)</Description>
+	    </Answer>
+	    <Answer QuestionRef="0">
+		    <Description>Lower front Ride Height. (-5 mm)</Description>
+	    </Answer>
+    </Question>
+    <Question QuestionID="3">
+	    <Description>Ok, so you feel as if you're getting understeer, or push, mid-turn. Let's stiffen the rear Anti-Roll Bar. This should help stop the rear from rolling around as much, and will also generate a little more rotation in the turn. We can stiffen the rear Anti-Roll Bar for you which should stop the back from rolling around as much and generating a little more rotation from the car in the turn.</Description>
+	    <Answer QuestionRef="0">
+		    <Description>Stiffen rear Anti-Roll Bar. (+5 N/mm)</Description>
+	    </Answer>
+    </Question>  
+    <Question QuestionID="4">
+	    <Description>Ok, so you feel as if you're getting turn-exit understeer. We can do two things: Frist,  we can stiffen the rear Anti-Roll Bar to reduce the car's body roll. Second, we can raise the car's rear Ride Hieght. We can stiffen the rear Anti-Roll Bar for you which should stop the back from rolling around as much and generating a little more rotation from the car in the turn.</Description>
+	    <Answer QuestionRef="0">
+		    <Description>Stiffen rear Anti-Roll Bar. (+5 N/mm)</Description>
+	    </Answer>
+      <Answer QuestionRef="0">
+		    <Description>Raise the rear Ride Height. (+5 mm)</Description>
+	    </Answer>
+    </Question>
+    <Question QuestionID="5">
+      <Description>Ok, so the car is turning too much in the corners, which means you're getting oversteer. Where in the corner is this happening?</Description>
+      <Answer QuestionRef="6">
+        <Description>When turning in.</Description>
+      </Answer>  
+      <Answer QuestionRef="7">
+        <Description>Throughout the corner.</Description>
+      </Answer>  
+      <Answer QuestionRef="8">
+        <Description>On corner exit.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="6">
+      <Description>Ok, so the car is oversteering when turning into a corner. There are two things we can do to help. First, we can stiffen the front Anti-Roll Bar to reduce body roll when turning into the turn. Second, we can stiffen the front spring rates to give the car more support when going into a turn. Alternatively, you can take a look at the Downforce section and see if that will help to improve the handling.</Description>
+      <Answer QuestionRef="0">
+        <Description>Stiffen front Anti-Roll Bar. (+10 N/mm)</Description>
+      </Answer>  
+      <Answer QuestionRef="0">
+        <Description>Stiffen the front Spring Rates. (+10 N/mm)</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Go to Downforce menu.</Description>
+        <CategoryRef>Downforce</CategoryRef>
+      </Answer>
+    </Question>
+    <Question QuestionID="7">
+      <Description>Right, so you're saying the car is oversteering going through the turns. We can try softening the rear Anti-Roll Bar. This should allow the car to roll a little more through the turns while leaning on the tyres in mid-corner. Alternatively, you can take a look at the Downforce section and see if that helps improve the handling.</Description>
+      <Answer QuestionRef="0">
+        <Description>Soften rear Anti-Roll Bar. (-5 N/mm)</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Go to Downforce menu.</Description>
+        <CategoryRef>Downforce</CategoryRef>
+      </Answer>  
+    </Question>
+    <Question QuestionID="8">
+      <Description>Ok, so you feel as if you're getting oversteer when on the power coming out of the turns. We can try softening the rear Anti-Roll Bar slightly which should allow the car to roll a little more and lean on the tyres when accelerating.</Description>
+      <Answer QuestionRef="0">
+        <Description>Soften rear Anti-Roll Bar. (-5 N/mm)</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="9">
+      <Description>Ok, firstly i'd advise taking a look at the tyre pressures as well as compounds in the setup section. Adjusting the tyre pressures, and selecting a more durable compound, can help with tyre wear. We can also try to stiffening the spring rates a little, which will make the tyres work less.</Description>
+      <Answer QuestionRef="0">
+        <Description>Stiffen the rear Spring Rates. (+10 N/mm)</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Stiffen the front Spring Rates. (+10 N/mm)</Description>
+      </Answer>  
+    </Question>
+  </Category>
+  <Category Name="Gearing">
+    <Question QuestionID="0">
+      <Description>What's the issue with the gearing?</Description>
+      <Answer QuestionRef="1">
+        <Description>Can't hit top speed.</Description>
+      </Answer>
+      <Answer QuestionRef="2">
+        <Description>Slow accelerating.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="1">
+      <Description>Ok, so you aren't able to hit top speed. Are you hitting, or getting very near the rev' limiter, in highest gear on the longest straight?</Description>
+      <Answer QuestionRef="3">
+        <Description>Yes.</Description>
+      </Answer>
+      <Answer QuestionRef="4">
+        <Description>No.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="2">
+      <Description>So, you are not hitting or getting very near to the rev limiter in the highest gear on the longest straight.</Description>
+      <Answer QuestionRef="0">
+        <Description>Lower the Final Drive Ratio. (+0.2)</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="3">
+      <Description>So, you are hitting or getting very near to the rev limiter in the highest gear on the longest straight. Increase the Final Drive Ratio would help here, that would allow you to reach a slightly higher top speed.</Description>
+      <Answer QuestionRef="0">
+        <Description>Increase the Final Drive Ratio. (-0.2)</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="4">
+      <Description>Ok, so you feel as if your acceleration is too slow. I'd suggest we lower the Final Drive Ratio to give you better acceleration. This will help you reach top speed quicker.</Description>
+      <Answer QuestionRef="0">
+        <Description>Lower the Final Drive Ratio. (+0.2)</Description>
+      </Answer>
+    </Question>
+  </Category>
+</Root>

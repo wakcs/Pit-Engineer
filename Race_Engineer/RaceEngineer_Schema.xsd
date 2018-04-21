@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://tempuri.org/RaceEngineer_Schema.xsd"
+           targetNamespace="http://tempuri.org/RaceEngineer_Schema.xsd"
+           elementFormDefault="qualified">
+  <xsd:element name="Root" type="tns:Root"/>
+
+  <xsd:complexType name="Root">
+    <xsd:sequence>
+      <xsd:element name="Category" type="tns:Category" maxOccurs="4">
+        <xsd:unique name="Question_Unique">
+          <xsd:selector xpath="tns:Question"/>
+          <xsd:field xpath="@QuestionID"/>
+        </xsd:unique>
+        <xsd:key name ="QuestRef">
+          <xsd:selector xpath="tns:Question"/>
+          <xsd:field xpath="@QuestionID"/>
+        </xsd:key>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Category">
+    <xsd:sequence>
+      <xsd:element name="Question" type="tns:Question" maxOccurs="unbounded">
+        <xsd:keyref name="Question_Ref" refer="tns:QuestRef">
+          <xsd:selector xpath="tns:Answer"/>
+          <xsd:field xpath="@QuestionRef"/>
+        </xsd:keyref>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="Name" type="xsd:string"/>
+  </xsd:complexType>
+  
+  <xsd:complexType name="Question">
+    <xsd:sequence>
+      <xsd:element name="Description" type="xsd:string">
+      </xsd:element>
+      <xsd:element name="Answer" type="tns:Answer" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="QuestionID" type="xsd:int"/>
+  </xsd:complexType>
+  
+  <xsd:complexType name="Answer">
+    <xsd:sequence>
+      <xsd:element name="Description" type="xsd:string"/>
+      <xsd:element name="CategoryRef" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute name="QuestionRef" type="xsd:int"/>
+  </xsd:complexType>
+</xsd:schema>
