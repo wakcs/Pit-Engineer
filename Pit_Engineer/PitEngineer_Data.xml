@@ -1,4 +1,4 @@
-﻿<Root xmlns="http://tempuri.org/RaceEngineer_Schema.xsd">
+﻿<Root xmlns="http://tempuri.org/PitEngineer_Schema.xsd">
   <Category Name="Braking">
     <Question QuestionID="0">
       <Description>What is the issue with the braking on the car?</Description>

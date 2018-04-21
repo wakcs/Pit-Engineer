@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-           xmlns:tns="http://tempuri.org/RaceEngineer_Schema.xsd"
-           targetNamespace="http://tempuri.org/RaceEngineer_Schema.xsd"
+           xmlns:tns="http://tempuri.org/PitEngineer_Schema.xsd"
+           targetNamespace="http://tempuri.org/PitEngineer_Schema.xsd"
            elementFormDefault="qualified">
   <xsd:element name="Root" type="tns:Root"/>
 

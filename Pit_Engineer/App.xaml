@@ -1,7 +1,7 @@
-﻿<Application x:Class="Race_Engineer.App"
+﻿<Application x:Class="Pit_Engineer.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Race_Engineer"
+             xmlns:local="clr-namespace:Pit_Engineer"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>

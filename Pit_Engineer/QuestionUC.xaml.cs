@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 
-namespace Race_Engineer {
+namespace Pit_Engineer {
     /// <summary>
     /// Interaction logic for QuestionUC.xaml
     /// </summary>
@@ -58,14 +58,14 @@ namespace Race_Engineer {
         public void GeneratePage(string category, int question) {
             XmlDocument doc = new XmlDocument();
             try {
-                doc.Load("RaceEngineer_data.xml");
+                doc.Load("PitEngineer_data.xml");
             }
             catch (System.IO.FileNotFoundException e) {
                 tbDescription.Text = e.Message;
                 return;
             }
             XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);
-            nsmgr.AddNamespace("tel", "http://tempuri.org/RaceEngineer_Schema.xsd");
+            nsmgr.AddNamespace("tel", "http://tempuri.org/PitEngineer_Schema.xsd");
             XmlNode cat = doc.SelectSingleNode("//tel:Category[@Name='" + category + "']", nsmgr);
             if (cat == null) {
                 lblCategory.Content = "Could not find category with name: " + category;

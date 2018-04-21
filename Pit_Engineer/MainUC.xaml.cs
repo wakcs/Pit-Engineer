@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Race_Engineer {
+namespace Pit_Engineer {
     /// <summary>
     /// Interaction logic for MainUC.xaml
     /// </summary>
@@ -39,16 +39,16 @@ namespace Race_Engineer {
         }
         public void SetDarkImages(bool isDark) {
             if (isDark) {
-                imgBraking.Source = new BitmapImage(new Uri("pack://application:,,,/Race_Engineer;component/Resources/RE_Brake_D.png"));
-                imgDownforce.Source = new BitmapImage(new Uri("pack://application:,,,/Race_Engineer;component/Resources/RE_Downforce_D.png"));
-                imgSuspension.Source = new BitmapImage(new Uri("pack://application:,,,/Race_Engineer;component/Resources/RE_Suspension_D.png"));
-                imgGearing.Source = new BitmapImage(new Uri("pack://application:,,,/Race_Engineer;component/Resources/RE_Gearing_D.png"));
+                imgBraking.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Brake_D.png"));
+                imgDownforce.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Downforce_D.png"));
+                imgSuspension.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Suspension_D.png"));
+                imgGearing.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Gearing_D.png"));
             }
             else {
-                imgBraking.Source = new BitmapImage(new Uri("pack://application:,,,/Race_Engineer;component/Resources/RE_Brake_L.png"));
-                imgDownforce.Source = new BitmapImage(new Uri("pack://application:,,,/Race_Engineer;component/Resources/RE_Downforce_L.png"));
-                imgSuspension.Source = new BitmapImage(new Uri("pack://application:,,,/Race_Engineer;component/Resources/RE_Suspension_L.png"));
-                imgGearing.Source = new BitmapImage(new Uri("pack://application:,,,/Race_Engineer;component/Resources/RE_Gearing_L.png"));
+                imgBraking.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Brake_L.png"));
+                imgDownforce.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Downforce_L.png"));
+                imgSuspension.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Suspension_L.png"));
+                imgGearing.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Gearing_L.png"));
 
             }
         }
