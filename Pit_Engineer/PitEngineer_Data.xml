@@ -160,10 +160,10 @@
         <Description>Unstable during heavy braking and turning.</Description>
       </Answer>
       <Answer QuestionRef="11">
-        <Description>Car feels too stiff (midcorner over/understeer creep or skittish over bumps/kerbs).</Description>
+        <Description>Car feels too stiff.</Description>
       </Answer>
       <Answer QuestionRef="12">
-        <Description>Car feels too soft (unpredictable in high speed corners or taking bumps/kerbs too well).</Description>
+        <Description>Car feels too soft.</Description>
       </Answer>
       <Answer QuestionRef="9">
         <Description>Tyres are gone after a few laps.</Description>
