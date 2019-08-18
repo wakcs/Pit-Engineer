@@ -1,13 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-           xmlns:tns="http://tempuri.org/PitEngineer_Schema.xsd"
-           targetNamespace="http://tempuri.org/PitEngineer_Schema.xsd"
+           xmlns:tns="urn:PitEngineer_Schema"
+           targetNamespace="urn:PitEngineer_Schema"
            elementFormDefault="qualified">
-  <xsd:element name="Root" type="tns:Root"/>
+  <xsd:element name="Root" type="tns:Root">
+  	<xsd:keyref name="Question_Ref" refer="tns:QuestRef">
+          <xsd:selector xpath="tns:Answer"/>
+          <xsd:field xpath="@QuestionRef"/>
+	</xsd:keyref>
+  </xsd:element>
 
   <xsd:complexType name="Root">
     <xsd:sequence>
-      <xsd:element name="Category" type="tns:Category" maxOccurs="4">
+      <xsd:element name="Category" type="tns:Category" maxOccurs="unbounded">
         <xsd:unique name="Question_Unique">
           <xsd:selector xpath="tns:Question"/>
           <xsd:field xpath="@QuestionID"/>
@@ -23,10 +28,6 @@
   <xsd:complexType name="Category">
     <xsd:sequence>
       <xsd:element name="Question" type="tns:Question" maxOccurs="unbounded">
-        <xsd:keyref name="Question_Ref" refer="tns:QuestRef">
-          <xsd:selector xpath="tns:Answer"/>
-          <xsd:field xpath="@QuestionRef"/>
-        </xsd:keyref>
       </xsd:element>
     </xsd:sequence>
     <xsd:attribute name="Name" type="xsd:string"/>

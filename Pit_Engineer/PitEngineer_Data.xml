@@ -1,4 +1,4 @@
-﻿<Root xmlns="http://tempuri.org/PitEngineer_Schema.xsd">
+<Root xsi:schemaLocation="urn:PitEngineer_Schema PitEngineer_Schema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:PitEngineer_Schema">
   <Category Name="Braking">
     <Question QuestionID="0">
       <Description>What is the issue with the braking on the car?</Description>
@@ -11,47 +11,80 @@
       <Answer QuestionRef="3">
         <Description>Keep sliding when braking.</Description>
       </Answer>
+      <Answer QuestionRef="6">
+        <Description>Brakes overheat too much.</Description>
+      </Answer>
+      <Answer QuestionRef="7">
+        <Description>Brakes are too cold after long straight.</Description>
+      </Answer>
     </Question>
     <Question QuestionID="1">
-      <Description>If you're not already doing so, I'd recommend braking a little earlier for the turns. Aside from that, changes to Brake Pressure or Brake Bias may also help. We can either look at increasing the Brake Pressure to improve braking power, or we can shift the Brake Bias. We can look at increasing Brake Pressure, which will make them more powerful.</Description>
+      <Description>If you're not already doing so, I'd recommend braking a little earlier for the turns. Aside from that, changes to Brake Pressure or Brake Bias may also help. We can either look at increasing the Brake Pressure to improve braking power, or we can shift the Brake Bias. We can look at increasing Brake Pressure, which will make them more powerful. Or decrease ABS which holds the brake pressure longer per interval, but can increase chance of lock-up.</Description>
       <Answer QuestionRef="0">
-        <Description>Increase Brake Pressure. (+1%)</Description>
+        <Description>Increase Brake Pressure.</Description>
       </Answer>
       <Answer QuestionRef="0">
-        <Description>Move Brake Bias rearwards. (+1/-1)</Description>
+        <Description>Move Brake Bias rearwards.</Description>
       </Answer>
       <Answer QuestionRef="0">
-        <Description>Move Brake Bias forwards. (-1/+1)</Description>
+        <Description>Move Brake Bias forwards.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Decrease ABS.</Description>
       </Answer>
     </Question>
     <Question QuestionID="2">
-      <Description>Generally speaking, stopping too quickly can be an advantage, as it means you can brake later to gain more time. We can, however, lower the Braking Pressure, this means that the brakes will have less stopping power, but it will also reduce the chance of locking-up the tyres.</Description>
+      <Description>Generally speaking, stopping too quickly can be an advantage, as it means you can brake later to gain more time. We can, however, lower the Braking Pressure or increase ABS, this means that the brakes will have less stopping power,  but it will also reduce the chance of locking-up the tyres.</Description>
       <Answer QuestionRef="0">
-        <Description>Decrease Brake Pressure. (-1%)</Description>
+        <Description>Decrease Brake Pressure.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Increase ABS</Description>
       </Answer>
     </Question>
     <Question QuestionID="3">
-      <Description>Ok, this sounds as if you're locking the tyres under braking, which is then causing the car to slide. Can you tell me whether it's the front or rear wheels that are locking-up? If it's the front locking-up, you'll find your car wants to keep going straight while you're braking, and you can't turn into the corner. If it's the rear, then the back of the car will get unstable and try to spin around.</Description>
+      <Description>Ok, this sounds as if you're locking the tyres under braking, which is then causing the car to slide. Can you tell me whether it's the front or rear wheels that are locking-up? If it's the front locking-up, you'll find your car wants to keep going straight while you're braking, and you can't turn into the corner. If it's the rear, then the back of the car will get unstable and try to spin around. If all wheels lock up at the same time, you can consider increasing ABS, this will reduce lockups, however it does increase braking distance.</Description>
       <Answer QuestionRef="4">
         <Description>Front.</Description>
-      </Answer>    
+      </Answer>
       <Answer QuestionRef="5">
         <Description>Rear.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Increase ABS.</Description>
       </Answer>
     </Question>
     <Question QuestionID="4">
       <Description>Are the front tyres locking easily? For instance, do they lock up almost straight away when you get on the brakes? If so, we can decrease the Brake Pressure, this will make the brakes a little less powerful, but will give you finer control under braking, and will also reduce the chance of the tyres locking-up. Or alternatively, we can move the Brake Bias towards the rear a little so the front brakes work a little less. This should ease the likelihood of the front brakes from locking.</Description>
       <Answer QuestionRef="0">
-        <Description>Move Brake Bias rearwards. (+1/-1)</Description>
+        <Description>Move Brake Bias rearwards.</Description>
       </Answer>
       <Answer QuestionRef="0">
-        <Description>Decrease Brake Pressure. (-1%)</Description>
+        <Description>Decrease Brake Pressure.</Description>
       </Answer>
-    </Question>  
+    </Question>
     <Question QuestionID="5">
       <Description>So the back of the car keeps tring to spin around? Moving the Brake Bias forward should help.</Description>
       <Answer QuestionRef="0">
-        <Description>Move Brake Bias forwards. (-1/+1)</Description>
+        <Description>Move Brake Bias forwards.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="6">
+      <Description>If the brakes are too hot after a couple of corners, consider opening the brakeducts to cool them down quicker. Alternatively, increasing the ABS or reduce brake power will slow down the heating when hitting full brakes, however this will lengthen your braking distance.</Description>
+      <Answer QuestionRef="0">
+        <Description>Open up brake ducts.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Increase ABS.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Decrease brake power.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="7">
+      <Description>If the brakes are too cold after a long straight, consider closing the brakeducts to cool them down less quick, however closing the ducts too much can result in brakes overheating elsewhere on the track.</Description>
+      <Answer QuestionRef="0">
+        <Description>Decrease brake ducts.</Description>
       </Answer>
     </Question>
   </Category>
@@ -67,14 +100,17 @@
       <Answer QuestionRef="3">
         <Description>Doesn't turn into corners.</Description>
       </Answer>
+      <Answer QuestionRef="4">
+        <Description>Bottoms out at high speed.</Description>
+      </Answer>
     </Question>
     <Question QuestionID="1">
       <Description>Ok, if you feel you're too slow on the straights, it could mean that the wing angles, or parts creating downforce, are too high and are creating too much drag. We can lower the rear wing angle, the front downforce angles, or both, if they are present, to create less drag and increase top-end speed. This could have an effect on car balance though, potentially increasing oversteer if only lowering the rears downforce, or understeer if only adjusting the front. Alternatively, you can take a look at the car's Gearing to see if you can get a little more straight line speed that way. If you want to improve this area I'd advise taking a look at Gearing as that might help you get a little more straight line speed.</Description>
       <Answer QuestionRef="0">
-        <Description>Reduce rear Downforce. (-1)</Description>
-      </Answer>    
+        <Description>Reduce rear Downforce.</Description>
+      </Answer>
       <Answer QuestionRef="0">
-        <Description>Reduce front Downforce. (-0.5)</Description>
+        <Description>Reduce front Downforce.</Description>
       </Answer>
       <Answer QuestionRef="0">
         <Description>Go to Gearing menu.</Description>
@@ -82,9 +118,13 @@
       </Answer>
     </Question>
     <Question QuestionID="2">
-      <Description>Ok, if it feels as if  you're losing grip at the rear through fast turns, that could mean that the rear wing angle is too low and not generating enough rear DOwnforce, which is causing oversteer. We can increase rear Downforce for you. You can also look at the Suspension, as that could provide alternative solutions to this problem.</Description>
+      <Description>Ok, if it feels as if  you're losing grip at the rear through fast turns, that could mean that the rear wing angle is too low and not generating enough rear Downforce, which is causing oversteer.It is also possible you are bottoming out throughout the corner, causing the floor to starve and lose downforce, in this case increasing the rideheight can help. You can also look at the Suspension, as that could provide alternative solutions to this problem.</Description>
       <Answer QuestionRef="0">
-        <Description>Raise rear Downforce. (+1)</Description>
+        <Description>Raise rear Downforce.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Increase Ride Height.</Description>
+        <CategoryRef />
       </Answer>
       <Answer QuestionRef="0">
         <Description>Go to Suspension menu.</Description>
@@ -94,11 +134,17 @@
     <Question QuestionID="3">
       <Description>Ok, if you feel as if the car isn't turning into corners, in all likelihood you're suffering from understeer. We can increase the front wing, or splitter angle, which will give you more front Downforce and "bite". That could mean that the rear Downdorce is too high and is causing too much drag, Would you like us to lower it for you? This will cost you downforce on the rear of the car in the corners.</Description>
       <Answer QuestionRef="0">
-        <Description>Reduce rear Downforce. (-1)</Description>
+        <Description>Reduce rear Downforce.</Description>
       </Answer>
       <Answer QuestionRef="0">
-        <Description>Raise front Downforce. (+0.5)</Description>
+        <Description>Raise front Downforce.</Description>
       </Answer>
+    </Question>
+    <Question QuestionID="4">
+      <Description>Generally speaking the lower the rideheight, the better the aero, however, too low and the floor could starve from air, or bottom out, causing you to slow down and lose grip. If this is the case, increasing the rideheight can help.</Description>
+    	<Answer QuestionRef="0">
+    		<Description>Increase Ride Height.</Description>
+    	</Answer>
     </Question>
   </Category>
   <Category Name="Suspension">
@@ -110,54 +156,69 @@
       <Answer QuestionRef="5">
         <Description>Turning too much in corners.</Description>
       </Answer>
+      <Answer QuestionRef="10">
+        <Description>Unstable during heavy braking and turning.</Description>
+      </Answer>
+      <Answer QuestionRef="11">
+        <Description>Car feels too stiff (midcorner over/understeer creep or skittish over bumps/kerbs).</Description>
+      </Answer>
+      <Answer QuestionRef="12">
+        <Description>Car feels too soft (unpredictable in high speed corners or taking bumps/kerbs too well).</Description>
+      </Answer>
       <Answer QuestionRef="9">
         <Description>Tyres are gone after a few laps.</Description>
       </Answer>
     </Question>
     <Question QuestionID="1">
-	    <Description>Ok, that sounds like understeer. Where in the corner is it not turning as much as you'd like? At the point of turning in? Or going through the corner? Or coming through the exit?</Description>
-	    <Answer QuestionRef="2">
-		    <Description>When turning in.</Description>
-	    </Answer>
-	    <Answer QuestionRef="3">
-		    <Description>Throughout the corner.</Description>
-	    </Answer>
-	    <Answer QuestionRef="4">
-		    <Description>On corner exit.</Description>
-	    </Answer>
+      <Description>Ok, that sounds like understeer. Where in the corner is it not turning as much as you'd like? At the point of turning in? Or going through the corner? Or coming through the exit?</Description>
+      <Answer QuestionRef="2">
+        <Description>When turning in.</Description>
+      </Answer>
+      <Answer QuestionRef="3">
+        <Description>Throughout the corner.</Description>
+      </Answer>
+      <Answer QuestionRef="4">
+        <Description>On corner exit.</Description>
+      </Answer>
     </Question>
     <Question QuestionID="2">
-	    <Description>Ok, it sounds as if you're getting understeer when turning in. There are a couple of things we can do here. First, we can stiffen the front springs to make the car more responsive when turning in. The other thing we can do depends on whether or not you're bottoming-out. If you're not, we can lower the front ride height to generate a bit more front downforce for those faster corners. We can stiffen the front Spring Rates to provide a bit sharper steering.</Description>
-	    <Answer QuestionRef="0">
-		    <Description>Stiffen the front Spring Rates. (+5 N/mm)</Description>
-	    </Answer>
-	    <Answer QuestionRef="0">
-		    <Description>Lower front Ride Height. (-5 mm)</Description>
-	    </Answer>
+      <Description>Ok, it sounds as if you're getting understeer when turning in. There are a couple of things we can do here. First, we can stiffen the front springs to make the car more responsive when turning in. The other thing we can do depends on whether or not you're bottoming-out. If you're not, we can lower the front ride height to generate a bit more front downforce for those faster corners. We can stiffen the front Spring Rates to provide a bit sharper steering. Increasing the bumpstop range allows for more weight transfer during braking and turn in at heavy braking corners.</Description>
+      <Answer QuestionRef="0">
+        <Description>Stiffen the front Spring Rates.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Lower front Ride Height.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Soften front bumpstop range.</Description>
+      </Answer>
     </Question>
     <Question QuestionID="3">
-	    <Description>Ok, so you feel as if you're getting understeer, or push, mid-turn. Let's stiffen the rear Anti-Roll Bar. This should help stop the rear from rolling around as much, and will also generate a little more rotation in the turn. We can stiffen the rear Anti-Roll Bar for you which should stop the back from rolling around as much and generating a little more rotation from the car in the turn.</Description>
-	    <Answer QuestionRef="0">
-		    <Description>Stiffen rear Anti-Roll Bar. (+5 N/mm)</Description>
-	    </Answer>
-    </Question>  
-    <Question QuestionID="4">
-	    <Description>Ok, so you feel as if you're getting turn-exit understeer. We can do two things: Frist,  we can stiffen the rear Anti-Roll Bar to reduce the car's body roll. Second, we can raise the car's rear Ride Hieght. We can stiffen the rear Anti-Roll Bar for you which should stop the back from rolling around as much and generating a little more rotation from the car in the turn.</Description>
-	    <Answer QuestionRef="0">
-		    <Description>Stiffen rear Anti-Roll Bar. (+5 N/mm)</Description>
-	    </Answer>
+      <Description>Ok, so you feel as if you're getting understeer, or push, mid-turn. Let's stiffen the rear Anti-Roll Bar. This should help stop the rear from rolling around as much, and will also generate a little more rotation in the turn. We can stiffen the rear Anti-Roll Bar for you which should stop the back from rolling around as much and generating a little more rotation from the car in the turn. Alternatively it is possible the weight slowly tranfers onto the rear wheels with soft bumpstop rates, causing it to roll and raise the front end during a corner.</Description>
       <Answer QuestionRef="0">
-		    <Description>Raise the rear Ride Height. (+5 mm)</Description>
-	    </Answer>
+        <Description>Stiffen rear Anti-Roll Bar.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+      	<Description>Stiffen rear bumpstop rate.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="4">
+      <Description>Ok, so you feel as if you're getting turn-exit understeer. We can do two things: Frist,  we can stiffen the rear Anti-Roll Bar to reduce the car's body roll. Second, we can raise the car's rear Ride Hieght. We can stiffen the rear Anti-Roll Bar for you which should stop the back from rolling around as much and generating a little more rotation from the car in the turn.</Description>
+      <Answer QuestionRef="0">
+        <Description>Stiffen rear Anti-Roll Bar.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Raise the rear Ride Height.</Description>
+      </Answer>
     </Question>
     <Question QuestionID="5">
       <Description>Ok, so the car is turning too much in the corners, which means you're getting oversteer. Where in the corner is this happening?</Description>
       <Answer QuestionRef="6">
         <Description>When turning in.</Description>
-      </Answer>  
+      </Answer>
       <Answer QuestionRef="7">
         <Description>Throughout the corner.</Description>
-      </Answer>  
+      </Answer>
       <Answer QuestionRef="8">
         <Description>On corner exit.</Description>
       </Answer>
@@ -165,10 +226,10 @@
     <Question QuestionID="6">
       <Description>Ok, so the car is oversteering when turning into a corner. There are two things we can do to help. First, we can stiffen the front Anti-Roll Bar to reduce body roll when turning into the turn. Second, we can stiffen the front spring rates to give the car more support when going into a turn. Alternatively, you can take a look at the Downforce section and see if that will help to improve the handling.</Description>
       <Answer QuestionRef="0">
-        <Description>Stiffen front Anti-Roll Bar. (+10 N/mm)</Description>
-      </Answer>  
+        <Description>Stiffen front Anti-Roll Bar.</Description>
+      </Answer>
       <Answer QuestionRef="0">
-        <Description>Stiffen the front Spring Rates. (+10 N/mm)</Description>
+        <Description>Stiffen the front Spring Rates.</Description>
       </Answer>
       <Answer QuestionRef="0">
         <Description>Go to Downforce menu.</Description>
@@ -176,29 +237,105 @@
       </Answer>
     </Question>
     <Question QuestionID="7">
-      <Description>Right, so you're saying the car is oversteering going through the turns. We can try softening the rear Anti-Roll Bar. This should allow the car to roll a little more through the turns while leaning on the tyres in mid-corner. Alternatively, you can take a look at the Downforce section and see if that helps improve the handling.</Description>
+      <Description>Right, so you're saying the car is oversteering going through the turns. We can try softening the rear Anti-Roll Bar. This should allow the car to roll a little more through the turns while leaning on the tyres in mid-corner. Second, it is possible the weight slowly tranfers onto the front wheels with soft bumpstop rates, causing it to roll and raise the rear end during a corner. Alternatively, you can take a look at the Downforce section and see if that helps improve the handling.</Description>
       <Answer QuestionRef="0">
-        <Description>Soften rear Anti-Roll Bar. (-5 N/mm)</Description>
+        <Description>Soften rear Anti-Roll Bar.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Stiffen front bumpstop range.</Description>
       </Answer>
       <Answer QuestionRef="0">
         <Description>Go to Downforce menu.</Description>
         <CategoryRef>Downforce</CategoryRef>
-      </Answer>  
+      </Answer>
     </Question>
     <Question QuestionID="8">
       <Description>Ok, so you feel as if you're getting oversteer when on the power coming out of the turns. We can try softening the rear Anti-Roll Bar slightly which should allow the car to roll a little more and lean on the tyres when accelerating.</Description>
       <Answer QuestionRef="0">
-        <Description>Soften rear Anti-Roll Bar. (-5 N/mm)</Description>
+        <Description>Soften rear Anti-Roll Bar.</Description>
       </Answer>
     </Question>
     <Question QuestionID="9">
       <Description>Ok, firstly i'd advise taking a look at the tyre pressures as well as compounds in the setup section. Adjusting the tyre pressures, and selecting a more durable compound, can help with tyre wear. We can also try to stiffening the spring rates a little, which will make the tyres work less.</Description>
       <Answer QuestionRef="0">
-        <Description>Stiffen the rear Spring Rates. (+10 N/mm)</Description>
+        <Description>Stiffen the rear Spring Rates.</Description>
       </Answer>
       <Answer QuestionRef="0">
-        <Description>Stiffen the front Spring Rates. (+10 N/mm)</Description>
-      </Answer>  
+        <Description>Stiffen the front Spring Rates.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="10">
+      <Description>When you need to brake heavily for a corner, it is possible the weight transfers too much to the front the front end bottoms out, decreasing the bumpstop range prevents the front going lower than a certain point. Alternatively the pitching needs to go smoothly, if the front hits the bumpstop too fast the energy will transfer to the tyres, causing too bounce. Increasing the bumpstop rate with smooth this out.</Description>
+      <Answer QuestionRef="0">
+        <Description>Lower bumpstop range.</Description>
+      </Answer>
+      <Answer>
+        <Description>Increase bumpstop rate.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="11">
+      <Description>So the car feels its creeping away from you during corners, or feels very skittish over bumps and kerbs?</Description>
+      <Answer QuestionRef="13">
+        <Description>Creeping away during corners.</Description>
+      </Answer>
+      <Answer QuestionRef="14">
+        <Description>Skittish over bumps and kerbs.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="12">
+      <Description>So the car feels unpredictable in high speed corners, or feels like bumps and kerbs are none-existing?</Description>
+      <Answer QuestionRef="15">
+        <Description>Unpredictable in high speed corners.</Description>
+      </Answer>
+      <Answer QuestionRef="16">
+        <Description>Bumps and kerbs don't exist.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="13">
+      <Description>The car feels like creeping away during corners, this can be because of either slow (Lo%) rebound or bump damper settings are too slow. If the damper is more often in rebound (extend) state than in bump (compress) state, or vica versa, increase slow rebound speed or slow bump speed respectively. Note, this can be best identified in a Damper Histogram. Alternatively you can look into ARB settings.</Description>
+      <Answer QuestionRef="0">
+        <Description>Increase slow rebound speed.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Increase slow bump speed.</Description>
+      </Answer>
+      <Answer QuestionRef="3">
+      	<Description>Look into rear Anti-Roll Bar settings for understeer.</Description>
+      </Answer>
+      <Answer QuestionRef="7">
+        <Description>Look into rear Anti-Roll Bar settings for oversteer.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="14">
+      <Description>The car feels like it's bouncing around when hitting bumps or kerbs, this can be because of either fast(Hi%) rebound or bump damper settings are too slow. If the damper is more often in rebound (extend) state than in bump (compress) state, or vica versa, increase high bump speed or high rebound speed respectively. Note, this can be best identified in a Damper Histogram.</Description>
+      <Answer QuestionRef="0">
+        <Description>Increase high rebound speed.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Increase high bump speed.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="15">
+      <Description>The car feels like it's unpredictable during high speed corners, this is likely because the slow (Lo%) dampers are too fast, causing the body to roll too much. If the damper is more often in rebound (extend) state than in bump (compress) state, or vica versa, decrease slow bump speed or slow rebound speed respectively. Note, this can be best identified in a Damper Histogram. Alternatively it could be because of wheel setup.</Description>
+      <Answer QuestionRef="0">
+        <Description>Decrease slow bump speed.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Decrease slow rebound speed.</Description>
+      </Answer>
+      <Answer QuestionRef="3">
+        <Description>Look at wheel settings.</Description>
+        <CategoryRef>Wheels</CategoryRef>
+      </Answer>
+    </Question>
+    <Question QuestionID="16">
+      <Description>The car feels like it takes bumps and kerbs a little too well? Likely because the high (Hi%) dampers are too fast. If the damper is more often in rebound (extend) state than in bump (compress) state, or vica versa, decrease fast rebound speed or fast bump speed respectively. Note, this can be best identified in a Damper Histogram.</Description>
+      <Answer QuestionRef="0">
+        <Description>Decrease fast rebound speed.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Decrease fast bump speed.</Description>
+      </Answer>
     </Question>
   </Category>
   <Category Name="Gearing">
@@ -223,19 +360,78 @@
     <Question QuestionID="2">
       <Description>So, you are not hitting or getting very near to the rev limiter in the highest gear on the longest straight.</Description>
       <Answer QuestionRef="0">
-        <Description>Lower the Final Drive Ratio. (+0.2)</Description>
+        <Description>Lower the Final Drive Ratio.</Description>
       </Answer>
     </Question>
     <Question QuestionID="3">
       <Description>So, you are hitting or getting very near to the rev limiter in the highest gear on the longest straight. Increase the Final Drive Ratio would help here, that would allow you to reach a slightly higher top speed.</Description>
       <Answer QuestionRef="0">
-        <Description>Increase the Final Drive Ratio. (-0.2)</Description>
+        <Description>Increase the Final Drive Ratio.</Description>
       </Answer>
     </Question>
     <Question QuestionID="4">
       <Description>Ok, so you feel as if your acceleration is too slow. I'd suggest we lower the Final Drive Ratio to give you better acceleration. This will help you reach top speed quicker.</Description>
       <Answer QuestionRef="0">
-        <Description>Lower the Final Drive Ratio. (+0.2)</Description>
+        <Description>Lower the Final Drive Ratio.</Description>
+      </Answer>
+    </Question>
+  </Category>
+  <Category Name="Wheels">
+    <Question QuestionID="0">
+      <Description>What is wrong with the wheels or tyres?</Description>
+      <Answer QuestionRef="1">
+        <Description>Tyres getting too hot.</Description>
+      </Answer>
+      <Answer QuestionRef="2">
+        <Description>Steering is too heavy.</Description>
+      </Answer>
+      <Answer QuestionRef="3">
+        <Description>Unstable (at high speed).</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="1">
+      <Description>Is just the inside of the tyre getting too hot compared with the rest of the tyre? Or the entire tyre?</Description>
+      <Answer QuestionRef="4">
+        <Description>Just the inside.</Description>
+      </Answer>
+      <Answer QuestionRef="5">
+        <Description>The entire tyre.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="2">
+      <Description>If the steering feels too heavy it's possible because of too high caster, lowering the caster can help, however too negative caster can cause understeer. Alternatively for simracers, consider lowering Force Feedback settings.</Description>
+      <Answer QuestionRef="0">
+        <Description>Lower caster.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Lower FFB settings.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="3">
+      <Description>If the car is unstable, it can because of a number of things, is the car getting unstable after a couple of laps? decrease tyre pressure. If it loses grip midcorner, decrease camber. If it understeers at turn-in, increase caster. if it oversteers at turn-in, increase toe.</Description>
+      <Answer QuestionRef="0">
+        <Description>Decrease tyre pressure.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Lower camber.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Raise caster.</Description>
+      </Answer>
+      <Answer QuestionRef="0">
+        <Description>Raise toe.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="4">
+      <Description>If the inside of the tyre is getting hotter than the rest of the tyre it means it has more contact with the road, this will result in higher temps, and faster wear on the inside, and less than optimal grip. Increasing the camber can fix this.</Description>
+      <Answer QuestionRef="0">
+        <Description>Increase camber.</Description>
+      </Answer>
+    </Question>
+    <Question QuestionID="5">
+      <Description>If the tyres get too hot it's likely because of too much friction with the road, increasing the tyre pressure will decrease the contact patch and thus friction with the road, however if the pressure is set too high you will lose grip.</Description>
+      <Answer QuestionRef="0">
+        <Description>Increase tyre pressure.</Description>
       </Answer>
     </Question>
   </Category>

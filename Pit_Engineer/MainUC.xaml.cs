@@ -26,10 +26,6 @@ namespace Pit_Engineer {
             SetDarkImages(isDark);
         }
         private void ClickButton(object sender, MouseButtonEventArgs e) {
-            //NavigationService nav = NavigationService.GetNavigationService(this);
-            //FrameworkElement border = (FrameworkElement)sender;
-            //nav.Content = new PageQuestion(border.Tag.ToString(), 0);
-
             FrameworkElement obj = sender as FrameworkElement;
             MainWindow main = App.Current.MainWindow as MainWindow;
             Transitioner trans = main.tsMain;
@@ -43,12 +39,14 @@ namespace Pit_Engineer {
                 imgDownforce.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Downforce_D.png"));
                 imgSuspension.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Suspension_D.png"));
                 imgGearing.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Gearing_D.png"));
+                imgWheels.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Wheels_D.png"));
             }
             else {
                 imgBraking.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Brake_L.png"));
                 imgDownforce.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Downforce_L.png"));
                 imgSuspension.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Suspension_L.png"));
                 imgGearing.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Gearing_L.png"));
+                imgWheels.Source = new BitmapImage(new Uri("pack://application:,,,/Pit_Engineer;component/Resources/RE_Wheels_L.png"));
 
             }
         }

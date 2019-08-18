@@ -28,6 +28,9 @@ namespace Pit_Engineer {
                 catName = category;
             }
         }
+
+        private string xmlNamespace = "urn:PitEngineer_Schema";
+
         public QuestionUC() {
             InitializeComponent();
             GeneratePage("None", 0);
@@ -65,7 +68,7 @@ namespace Pit_Engineer {
                 return;
             }
             XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);
-            nsmgr.AddNamespace("tel", "http://tempuri.org/PitEngineer_Schema.xsd");
+            nsmgr.AddNamespace("tel", xmlNamespace);
             XmlNode cat = doc.SelectSingleNode("//tel:Category[@Name='" + category + "']", nsmgr);
             if (cat == null) {
                 lblCategory.Content = "Could not find category with name: " + category;

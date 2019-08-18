@@ -14,17 +14,20 @@
             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
     <Grid>
         <Label x:Name="lblIntro" Content="Welcome to your Pit Engineer, what seems to be the issue?" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <GroupBox x:Name="gbBraking" Header="Braking" HorizontalAlignment="Center" Margin="0,0,495,200" VerticalAlignment="Bottom" Cursor="Hand" MouseLeftButtonUp="ClickButton" Tag="Braking" FontWeight="Normal" FontSize="20">
+        <GroupBox x:Name="gbBraking" Header="Braking" HorizontalAlignment="Center" Margin="0,0,660,200" VerticalAlignment="Bottom" Cursor="Hand" MouseLeftButtonUp="ClickButton" Tag="Braking" FontWeight="Normal" FontSize="20">
             <Image x:Name="imgBraking" Source="Resources/RE_Brake_L.png" Width="130"/>
         </GroupBox>
-        <GroupBox x:Name="gbDownforce" Header="Downforce" HorizontalAlignment="Center" Margin="0,0,165,200" VerticalAlignment="Bottom" Cursor="Hand" MouseLeftButtonUp="ClickButton" Tag="Downforce" FontSize="20" FontWeight="Normal">
+        <GroupBox x:Name="gbDownforce" Header="Downforce" HorizontalAlignment="Center" Margin="0,0,330,200" VerticalAlignment="Bottom" Cursor="Hand" MouseLeftButtonUp="ClickButton" Tag="Downforce" FontSize="20" FontWeight="Normal">
             <Image x:Name="imgDownforce" Source="Resources/RE_Downforce_L.png" Width="130"/>
         </GroupBox>
-        <GroupBox x:Name="gbSuspension" Header="Suspension" HorizontalAlignment="Center" Margin="165,0,0,200" VerticalAlignment="Bottom" Cursor="Hand" MouseLeftButtonUp="ClickButton" Tag="Suspension" FontSize="20" FontWeight="Normal">
+        <GroupBox x:Name="gbSuspension" Header="Suspension" HorizontalAlignment="Center" Margin="0,0,0,200" VerticalAlignment="Bottom" Cursor="Hand" MouseLeftButtonUp="ClickButton" Tag="Suspension" FontSize="20" FontWeight="Normal">
             <Image x:Name="imgSuspension" Source="Resources/RE_Suspension_L.png" Width="130"/>
         </GroupBox>
-        <GroupBox x:Name="gbGearing" Header="Gearing" HorizontalAlignment="Center" Margin="494,0,0,200" VerticalAlignment="Bottom" Cursor="Hand" MouseLeftButtonUp="ClickButton" Tag="Gearing" FontSize="20" FontWeight="Normal">
+        <GroupBox x:Name="gbGearing" Header="Gearing" HorizontalAlignment="Center" Margin="330,0,0,200" VerticalAlignment="Bottom" Cursor="Hand" MouseLeftButtonUp="ClickButton" Tag="Gearing" FontSize="20" FontWeight="Normal">
             <Image x:Name="imgGearing" Source="Resources/RE_Gearing_L.png" Width="130"/>
+        </GroupBox>
+        <GroupBox x:Name="gbWheels" Header="Wheels" HorizontalAlignment="Center" Margin="660,0,0,200" VerticalAlignment="Bottom" Cursor="Hand" MouseLeftButtonUp="ClickButton" Tag="Wheels" FontSize="20" FontWeight="Normal">
+            <Image x:Name="imgWheels" Source="Resources/RE_Wheels_L.png" Width="130"/>
         </GroupBox>
     </Grid>
 </UserControl>
