@@ -30,7 +30,7 @@
       <xsd:element name="Question" type="tns:Question" maxOccurs="unbounded">
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="Name" type="xsd:string"/>
+    <xsd:attribute name="Name" type="xsd:string" use="required"/>
   </xsd:complexType>
   
   <xsd:complexType name="Question">
@@ -39,7 +39,7 @@
       </xsd:element>
       <xsd:element name="Answer" type="tns:Answer" maxOccurs="unbounded"/>
     </xsd:sequence>
-    <xsd:attribute name="QuestionID" type="xsd:int"/>
+    <xsd:attribute name="QuestionID" type="xsd:int" use="required"/>
   </xsd:complexType>
   
   <xsd:complexType name="Answer">
@@ -47,6 +47,6 @@
       <xsd:element name="Description" type="xsd:string"/>
       <xsd:element name="CategoryRef" type="xsd:string" minOccurs="0"/>
     </xsd:sequence>
-    <xsd:attribute name="QuestionRef" type="xsd:int"/>
+    <xsd:attribute name="QuestionRef" type="xsd:int" use="required"/>
   </xsd:complexType>
 </xsd:schema>
